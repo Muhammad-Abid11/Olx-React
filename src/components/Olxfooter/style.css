@@ -1,0 +1,38 @@
+.footer2{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #EBEEEF;
+    padding: 15px 0px;
+}
+.footer2 ul{
+    list-style: none;
+    color: gray;
+    font-size: 14px;
+    padding: 0px;
+}
+.followUs{
+    display: flex;
+    /* background-color: yellow; */
+}
+.followUs img{
+    width: 30px;
+    margin: 5px;
+}
+
+.followUsApp{
+    margin: 30px 0px;
+    height: 20px;
+    display: flex;   
+}
+.footer3{
+    background-color: #002F34;
+    height: 50px;
+    width: 100%;
+    font-size: 12px;
+    color: white;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 10px 30px 0px 0px;
+}

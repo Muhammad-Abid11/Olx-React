@@ -1,0 +1,186 @@
+.nav-bar{
+    /* background-color:yellow; */
+    display: flex;
+    align-items: center;
+}
+
+.nav-box-1{
+    width: 50px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:10px  15px  ;
+/* background-color: yellow; */
+}
+.nav-box-1 >img{
+    width: 35px;
+    
+}
+
+.nav-box-1:hover{
+    cursor: pointer;
+    color: #31bbdd;
+}
+
+.nav-box-2{
+    /* background-color: yellow; */
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    text-transform: uppercase;
+    font-weight: 500;
+    height: 40px;
+    font-size:12px
+}
+.nav-img-2 >img{
+    width:20px;
+    background-color: #EDEDED;
+    margin-right:10px;
+    border-radius: 12px;
+
+}
+.nav-box-2:hover{
+    cursor: pointer;
+    color: #31bbdd;
+}
+
+/* nav-2 start */
+
+.navbar2{
+    /* background-color: blueviolet; */
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* flex-wrap: wrap; */
+    /* margin-bottom: 30px; */
+    
+}
+.navbar2-box1{
+    /* background-color: yellow; */
+    width: 70px;
+    /* height: 70px; */
+    margin-left: 20px;
+    box-sizing: border-box;
+}
+.navbar2-box1>img{
+    width: 80px;
+}
+.navbar2-box2{
+    /* background-color: aqua; */
+    border: solid 2px #002F34;
+    border-radius: 5px;
+    width: 20%; /* media*/
+    margin: 10px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.navbar2-box2 img{
+    width:18px;
+    margin: 10px;
+}
+.navbar2-box2 select{
+    flex: 1;
+    height:40px;
+    border:none;
+    border-radius: 5px;
+      outline: none; /* Remove the outline on focus (optional) */
+}
+
+.navbar2-box3{
+    /* background-color: aqua; */
+    border: solid 2px #002F34;
+    border-radius: 5px;
+    display:flex;
+    align-items: center;
+    width: 50%;
+}
+.navbar2-input{
+    flex: 1;
+}
+
+.navbar2-input input{
+    height:40px;
+    border:none;
+    width: 100%;
+    border: none;
+    outline: none; /* Remove the outline on focus (optional) */
+    font-size: 17px;
+    padding: 8px;
+}
+
+.navbar2-box3 img{
+    padding: 6px;
+    height:40px;
+    border:none;
+    background-color: #002F34;
+}
+
+#btn-login{
+    text-decoration: underline ;
+    font-size: 20px;
+    margin: 30px;
+    padding: 10px;
+    border: 0px ;
+    border-radius: 10px;
+    background-color: white;
+}
+
+/*  */
+.login-text {
+    font-size: 16px;
+    font-weight: bold;
+    border: 0px ;
+    border-radius: 10px;
+    background-color: white;
+    display: inline-block;
+    position: relative;
+}
+
+.login-text:after {
+    content: "";
+    height: 2px;
+    width: 100%;
+    background-color: #000; /* You can adjust the color to your preference */
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+/* 
+.navbar2-box5{
+    display: flex;
+    background-image: url(../../OLX/assests/iconSellBorder.svg);
+    background-size:contain ;
+    background-repeat: no-repeat;
+    font-weight: bold;
+    text-transform: uppercase;
+    justify-content:center;
+    align-items: center;
+    padding-left: 2%;
+    height: 50px;
+    width: 10%;
+}
+ */
+
+ .navbar2-box5 button{
+    background: none;
+    border: none;
+    margin: none;
+    padding: none;
+    display: flex;
+    position: relative;
+    cursor: pointer;
+ }
+
+ .navbar2-box5-sell{
+        position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 15px;
+    right: 2px;
+ }

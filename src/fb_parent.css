@@ -1,0 +1,11 @@
+.fbBody{
+    min-height: 100vh;
+    background-color: #F0F2F5;
+    /* flex sy complete color hua hai*/
+    display: flex;
+    flex-direction: column;
+}
+
+.fbNav{
+    margin-bottom: 70px;
+}
