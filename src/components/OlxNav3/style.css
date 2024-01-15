@@ -1,0 +1,21 @@
+.menu ul{
+    /* background-color: red; */
+    display: flex;
+    /* justify-content: space-around; */
+    align-items: center;
+    /* margin-right: 40%; */
+    padding: 10px;
+    list-style: none;
+    border: 12px solid #F9F9F9;
+}
+.menu ul a{
+    /* background-color: #002F34; */
+    margin-left: 13px;
+    color: black;
+    font-size: 14px;
+    text-decoration: none;
+}
+.menu ul a:hover{
+    color: #31bbdd;
+}
+

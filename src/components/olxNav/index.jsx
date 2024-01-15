@@ -1,14 +1,14 @@
 import React from 'react'
 import './style.css'
 
-import carIcon from '../../OLX/assests/header-car.png'
-import Logo from "../../OLX/assests/logo-blue.png"
-import LogoBlack from "../../OLX/assests/olx-black.png"
-import property from "../../OLX/assests/header-property.png"
-import searchIcon from "../../OLX/assests/search.png"
-import findIcon from "../../OLX/assests/find.png"
-import iconPlus from "../../OLX/assests/iconPlusSell.svg"
-import iconSellBorder from "../../OLX/assests/iconSellBorder.svg"
+import carIcon from '../../assests/header-car.png'
+import Logo from "../../assests/logo-blue.png"
+import LogoBlack from "../../assests/olx-black.png"
+import property from "../../assests/header-property.png"
+import searchIcon from "../../assests/search.png"
+import findIcon from "../../assests/find.png"
+import iconPlus from "../../assests/iconPlusSell.svg"
+import iconSellBorder from "../../assests/iconSellBorder.svg"
 export default function Olxnav() {
     return (
         <div>

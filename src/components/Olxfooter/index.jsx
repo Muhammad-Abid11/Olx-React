@@ -1,13 +1,13 @@
 import React from 'react'
 import './style.css'
 
-import iconFbfooter from '../../OLX/assests/iconFacebook_footer.svg'
-import iconTwitterfooter from '../../OLX/assests/iconTwitter-footer.svg'
-import iconYoutubefooter from '../../OLX/assests/iconYoutube_footer.svg'
-import iconInstagramfooter from '../../OLX/assests/iconInstagram_footer.svg'
-import iconAppStoreENfooter from '../../OLX/assests/iconAppStoreEN_footer.svg'
-import iconGooglePlayENfooter from '../../OLX/assests/iconGooglePlayEN_footer.svg'
-import iconAppGalleryfooter from '../../OLX/assests/iconAppGallery_footer.svg'
+import iconFbfooter from '../../assests/iconFacebook_footer.svg'
+import iconTwitterfooter from '../../assests/iconTwitter-footer.svg'
+import iconYoutubefooter from '../../assests/iconYoutube_footer.svg'
+import iconInstagramfooter from '../../assests/iconInstagram_footer.svg'
+import iconAppStoreENfooter from '../../assests/iconAppStoreEN_footer.svg'
+import iconGooglePlayENfooter from '../../assests/iconGooglePlayEN_footer.svg'
+import iconAppGalleryfooter from '../../assests/iconAppGallery_footer.svg'
 export default function Olxfooter() {
     return (
         <footer>

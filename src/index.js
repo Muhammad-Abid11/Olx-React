@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Olx from './OLX/olx';
-
+import Olx from './olx';
+import Router from './config/Router/router';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,7 +12,8 @@ root.render(
   // <Quiz />
 
   // <Task6 />
-  <Olx />
+  // <Olx />
+  <Router />
 );
 
 // If you want to start measuring performance in your app, pass a function

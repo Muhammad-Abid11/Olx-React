@@ -1,0 +1,37 @@
+
+/* .menu end */
+    .slider{
+    background-image: url("../../assests/slider-1.webp");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 16em;
+    margin: 20px;
+}
+
+
+.cat{
+    margin: 20px;
+}
+.cat1 >h3{
+    margin: 20px;
+}
+/*  */
+.categories{
+    display: flex;
+    justify-content: flex-start;
+    gap: 70px; 
+    flex-wrap: wrap;
+    margin-bottom: 70px;
+}
+/*  */
+.product1{
+    width: 100px;
+    height: 100px;
+    font-weight: bolder;
+    text-align: center;
+}
+.product1 img{
+    width: 80px;
+    cursor: pointer;
+}
+

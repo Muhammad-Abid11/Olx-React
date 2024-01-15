@@ -1,0 +1,28 @@
+.details{
+    display: flex;
+}
+.imageGallery{
+    background-color: red;
+    width: 65%;
+    height: 600px;
+}
+.contactInfo{
+    background-color: yellow;
+        width: 35%;
+    height: 600px;
+}
+.details-2{
+    background-color: pink;
+        width: 65%;
+    height: 200px;
+}
+.details-3{
+    background-color: rebeccapurple;
+        width: 65%;
+    height: 200px;
+}
+.details-4{
+    background-color:green;
+        width: 65%;
+    height: 200px;
+}

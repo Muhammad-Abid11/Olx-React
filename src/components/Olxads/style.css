@@ -1,0 +1,16 @@
+
+.card-img-top{
+    /* background-image: url("assests/ad1.jpg"); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: center;
+    width: 100%;
+    height: 200px;
+}
+.card{
+    cursor: pointer;
+
+}
+.add{
+    color: grey;
+}
