@@ -1,12 +1,12 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
-
 import './style.css'
 
 
 export default function Olxads(props) {
     console.log("props-->", props.index)
     const { brand, price, thumbnail, description } = props.ads
+
     const navigate = useNavigate();
 
     return (

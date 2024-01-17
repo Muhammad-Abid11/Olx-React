@@ -129,6 +129,7 @@
     background-color: white;
     display: inline-block;
     position: relative;
+      outline: none; 
 }
 
 .login-text:after {
@@ -165,6 +166,8 @@
     display: flex;
     position: relative;
     cursor: pointer;
+      outline: none; 
+
  }
 
  .navbar2-box5-sell{

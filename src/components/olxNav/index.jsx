@@ -1,5 +1,4 @@
-import React from 'react'
-import './style.css'
+import React, { useState } from 'react'
 
 import carIcon from '../../assests/header-car.png'
 import Logo from "../../assests/logo-blue.png"
@@ -9,7 +8,16 @@ import searchIcon from "../../assests/search.png"
 import findIcon from "../../assests/find.png"
 import iconPlus from "../../assests/iconPlusSell.svg"
 import iconSellBorder from "../../assests/iconSellBorder.svg"
+
+import MyModal from '../Modal'
+import './style.css'
 export default function Olxnav() {
+
+    const [showModal, setShowModal] = useState(false);
+
+    const handleShow = () => setShowModal(true);
+    const handleClose = () => setShowModal(false);
+
     return (
         <div>
             <nav className="sticky-top bg-light">
@@ -51,7 +59,12 @@ export default function Olxnav() {
                         </div>
                     </div>
                     <div className="navbar2-box4">
-                        <button class="login-text">Login</button>
+                        {/*  */}
+
+                        <MyModal show={showModal} handleClose={handleClose} />
+                        {/*  */}
+
+                        <button class="login-text" onClick={handleShow}>Login</button>
                     </div>
 
 

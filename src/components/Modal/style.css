@@ -1,0 +1,37 @@
+.logo{
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.Sologan{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* background-color: red; */
+    width: 70%;
+    margin: auto;
+}
+
+.btnGoogle{
+    /* background-color: yellow; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    color: #416468;
+    font-weight: bold;
+    border: solid 2px #002F34;
+    border-radius: 5px;
+    margin: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.btnGoogle:hover{
+    border: solid 3px #002F34;
+}
+
