@@ -26,9 +26,11 @@ const MyModal = ({ show, handleClose }) => {
         setShowSignup(true);
     };
 
+    // down function closes all model
     const handleCloseModal = () => {
         setShowLogin(false);
         setShowSignup(false);
+        setSecondModal(false)
         handleClose();
     };
     // 

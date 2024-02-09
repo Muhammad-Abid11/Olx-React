@@ -6,10 +6,15 @@ import {
 
 import Olx from '../../olx';
 import Olxdetails from '../../views/OlxDetails';
+import SellPage from '../../views/sellPage';
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Olx />,
+    },
+    {
+        path: "/sell",
+        element: <SellPage />,
     },
     {
         path: "/detail/:id",

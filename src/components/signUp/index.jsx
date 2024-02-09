@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-// import { onAuthStateChanged } from 'firebase'
+// import arrowBack from '../../assests/arrow-back.svg'
+
 import { signUp } from '../../config/firebase/firebase';
-import arrowBack from '../../assests/arrow-back.svg'
 import './style.css'
 export default function Signup(props) {
-    // console.log('---.', props.setSecondModal)
 
+    // console.log("prop me function-->", props.setSecondModal)
     const [fullname, setFullname] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -22,29 +22,22 @@ export default function Signup(props) {
             };
 
             await signUp(data);
+            props.setSecondModal() //it closes all model when user signUp
             // Clear the input fields
             setFullname('');
             setEmail('');
             setPassword('');
             setConfirmPassword('');
 
-
         } catch (error) {
             console.log("error -->", error)
         };
 
     }
-
-
-
-
-
-
-
     return (
         <div>
 
-            <h1 onClick={() => props.setSecondModal(false)}>  <img src={arrowBack} alt="arrowBack" width={30} /> </h1>
+            {/* <h1 onClick={() => props.setSecondModal()}>  <img src={arrowBack} alt="arrowBack" width={30} /> </h1> */}
             <div class="container">
                 <label for="fullname"><b>Full Name</b></label>
                 <input type="text" placeholder="Enter Username" id="fullname" name="uname" required value={fullname} onChange={(e) => setFullname(e.target.value)} />

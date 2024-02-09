@@ -9,7 +9,7 @@
 }
 .card{
     cursor: pointer;
-
+    overflow: hidden;
 }
 .add{
     color: grey;

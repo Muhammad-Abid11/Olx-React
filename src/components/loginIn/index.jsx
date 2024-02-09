@@ -1,15 +1,26 @@
 import React, { useState } from 'react'
-// import { onAuthStateChanged } from 'firebase'
-// import { signUp } from '../../config/firebase/firebase';
-import arrowBack from '../../assests/arrow-back.svg'
+import { auth, onAuthStateChanged } from '../../config/firebase/firebase';
+
+import { login } from '../../config/firebase/firebase';
 import './style.css'
 export default function Login(props) {
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleLogin = () => {
-
+    const handleLogin = async () => {
+        try {
+            const data = {
+                email,
+                password
+            }
+            await login(data)
+            setEmail('');
+            setPassword('');
+            props.setSecondModal() //it closes all model when user signUp
+        } catch (error) {
+            console.log("error -->", error.message)
+            // alert("user not found")
+        };
     }
     return (
         <div>

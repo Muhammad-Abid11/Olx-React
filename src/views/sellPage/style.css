@@ -1,0 +1,117 @@
+.sellForm{
+    /* border: 5px solid black; */
+    width: 90%;
+    /* height: 100vh; */
+    margin: auto;
+}
+.form-title{
+    width: 40%;
+    /* background-color: olive; */
+    margin: auto;
+}
+.adForm{
+    /* border: 5px solid black; */
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap-reverse ;
+    justify-content: center;
+}
+
+.adForm-user{
+    min-width: 700px;
+    flex: 2;
+    /* height: 100vh; */
+    /* background-color: yellow; */
+}
+
+.adForm-Pictures{
+    /* height: 100vh; */
+    min-width: 300px;
+    /* flex: 1; */
+    /* background-color: green; */
+}
+
+
+
+/*  */
+
+
+span.psw {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+input[type=email],
+input[type=text],
+input[type=password],
+input[type=number] ,
+input[type=file] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+
+.btnSign {
+    background-color: #002F34;
+    color: aliceblue;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    /* width: 20%; */
+
+}
+.btnSignDiv{
+    width: 30%;
+    margin: auto;
+    border-radius: 5px;
+
+}
+.btnSign:hover {
+    opacity: 0.8;
+}
+
+
+
+/*  */
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+.edtBtn {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  text-align: center;
+    background-color: #002F34;
+
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.edtBtn:hover {
+  opacity: 0.7;
+}
+/*  */

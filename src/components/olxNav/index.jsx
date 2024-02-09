@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-
+import React, { useEffect, useState } from 'react'
 import carIcon from '../../assests/header-car.png'
 import Logo from "../../assests/logo-blue.png"
 import LogoBlack from "../../assests/olx-black.png"
@@ -8,21 +7,41 @@ import searchIcon from "../../assests/search.png"
 import findIcon from "../../assests/find.png"
 import iconPlus from "../../assests/iconPlusSell.svg"
 import iconSellBorder from "../../assests/iconSellBorder.svg"
-
+import { Signout, auth, onAuthStateChanged } from '../../config/firebase/firebase'
 import MyModal from '../Modal'
 import './style.css'
+import { useNavigate } from 'react-router-dom'
+
 export default function Olxnav() {
-
     const [showModal, setShowModal] = useState(false);
-
+    const [userLogged, setUserLogged] = useState("")
     const handleShow = () => setShowModal(true);
     const handleClose = () => setShowModal(false);
+
+    const navigate = useNavigate()
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setUserLogged(user)
+                console.log("user agaya! ");
+            } else {
+                console.log("login kr pehly ");
+            }
+        });
+    }, [])
+    console.log("OLxNAVuser--->", userLogged);
+    const logout = async () => {
+        console.log("hi logou")
+        await Signout()
+        setUserLogged("")
+        navigate('/')
+    }
 
     return (
         <div>
             <nav className="sticky-top bg-light">
                 <div className="nav-bar ">
-                    <div className="nav-box-1">
+                    <div className="nav-box-1" onClick={() => navigate('/')}>
                         <img src={Logo} alt="blue-logo" />
                     </div>
                     <div className="nav-box-2 ">
@@ -40,7 +59,7 @@ export default function Olxnav() {
 
                 </div>
                 <div className="navbar2">
-                    <div className="navbar2-box1">
+                    <div className="navbar2-box1" onClick={() => navigate('/')}>
                         <img src={LogoBlack} alt="LogoBlack" />
                     </div>
                     <div className="navbar2-box2">
@@ -63,8 +82,10 @@ export default function Olxnav() {
 
                         <MyModal show={showModal} handleClose={handleClose} />
                         {/*  */}
-
-                        <button class="login-text" onClick={handleShow}>Login</button>
+                        {userLogged ?
+                            <button class="login-text" onClick={logout}>Logout</button>
+                            : <button class="login-text" onClick={handleShow}>Login</button>
+                        }
                     </div>
 
 
@@ -72,8 +93,11 @@ export default function Olxnav() {
                         <button>
                             <img src={iconSellBorder} alt="iconSellBorder" />
                             <div className="navbar2-box5-sell">
-                                <img src={iconPlus} alt="iconPlus" />
-                                <span>Sell</span>
+                                {userLogged ?
+                                    <span onClick={() => navigate('/sell')}><img src={iconPlus} alt="iconPlus" />Sell</span>
+                                    :
+                                    <span onClick={handleShow}><img src={iconPlus} alt="iconPlus" />Sell</span>
+                                }
                             </div>
                         </button>
                     </div>

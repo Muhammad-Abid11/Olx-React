@@ -4,14 +4,14 @@ import './style.css'
 
 
 export default function Olxads(props) {
-    console.log("props-->", props.index)
+    // console.log("props-->", props.index)
     const { brand, price, thumbnail, description } = props.ads
 
     const navigate = useNavigate();
 
     return (
 
-        <div class="card" style={{ width: "18rem" }} onClick={() => navigate(`/detail/${props.index}`)} >
+        <div class="card" style={{ width: "18rem", height: "450px" }} onClick={() => navigate(`/detail/${props.index}`)} >
             <div class="card-img-top">
                 <img src={thumbnail} class="card-img-top" alt="ad1" />
             </div>

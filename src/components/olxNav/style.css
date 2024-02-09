@@ -65,6 +65,7 @@
     /* height: 70px; */
     margin-left: 20px;
     box-sizing: border-box;
+    cursor: pointer;
 }
 .navbar2-box1>img{
     width: 80px;
