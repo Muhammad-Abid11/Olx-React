@@ -1,0 +1,26 @@
+.btnBack{
+    font-weight: bold;
+    padding: 4px;
+    margin: 4px;
+    border: none;
+background-color: transparent;
+
+}
+
+.btnNext{
+    font-weight: bold;
+    padding: 14px;
+    margin: 3px;
+    border: none;
+    background-color: transparent;
+}
+
+.btnNext:focus { outline: none; }
+.btnBack:focus { outline: none; }
+
+.caru{
+    max-width: 80%;
+    margin: 10px;
+    height: 500px;
+    object-fit: contain;
+}

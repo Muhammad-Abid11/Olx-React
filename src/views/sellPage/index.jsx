@@ -15,8 +15,8 @@ export default function SellPage() {
     const [description, setDescription] = useState('');
     const [brand, setBrand] = useState('');
     const [amount, setAmount] = useState();
-    const [image, setImage] = useState(null);
-    const uid = auth.currentUser.uid //Authentication
+    const [image, setImage] = useState([]);
+    const uid = auth?.currentUser?.uid //Authentication
 
 
     const [selectedImage, setSelectedImage] = useState(userAvatar);
@@ -65,7 +65,10 @@ export default function SellPage() {
 
     // image show krne k input sy get k liye down
     const handleImageChange = (e) => {
-        setImage(e.target.files[0]);
+        const files = e.target.files; // Extract FileList
+        const imagesArray = Array.from(files); // Convert FileList to array of File objects
+        // Now pass the array of File objects to the postAdToDb function
+        setImage(imagesArray);
         const file = e.target.files[0];
         if (file) {
             const reader = new FileReader();
@@ -134,7 +137,7 @@ export default function SellPage() {
                             </h1>
                             <p class="title">Product Image</p>
                             <p>
-                                <input type="file" name="uploadfile" onChange={handleImageChange} accept="image/*" id="img" style={{ display: "none" }} />
+                                <input type="file" name="uploadfile" multiple onChange={handleImageChange} accept="image/*" id="img" style={{ display: "none" }} />
                                 <label for="img" className='edtBtn'>Click me to upload image</label>
                                 {/* <button className='edtBtn'>Upload</button> */}
                             </p>

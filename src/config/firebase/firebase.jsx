@@ -101,12 +101,15 @@ async function renderSingleAd(adId) {
 // render PostADs start-----------------------------
 export async function postAdToDb(ad) {
     console.log("adsfirebase ", ad.image)
-    try {
-        const storageRef = ref(storage, `ads/${ad.image.name}`);
-        await uploadBytes(storageRef, ad.image)
-        const url = await getDownloadURL(storageRef)
-        ad.image = url
 
+    try {
+        for (let index = 0; index < ad.image.length; index++) {
+            const image = ad.image[index]
+            const storageRef = ref(storage, `ads/${image.name}`);
+            await uploadBytes(storageRef, image)
+            const url = await getDownloadURL(storageRef)
+            ad.image[index] = url
+        }
         const res = await addDoc(collection(db, "ads"), ad)
         alert('Data added successfully!')
         return "Data added successfully!"

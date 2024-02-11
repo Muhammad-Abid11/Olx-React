@@ -6,6 +6,7 @@ import Olxnav3 from '../../components/OlxNav3'
 import Olxfooter from '../../components/Olxfooter'
 import locationIcon from '../../assests/location.png'
 import './style.css'
+import Carousel from '../../components/Carousel'
 
 export default function Olxdetails() {
     const { id } = useParams()
@@ -35,13 +36,13 @@ export default function Olxdetails() {
         // console.log("firebase sy daata aya", data)
         // console.log("firebase sy daata aya", data.uid)
     }
-    console.log("user's details", userInfo)
+    // console.log("user's details", userInfo)
 
     // console.log("images-->", singleAd)
     // const { images, price, brand, thumbnail, category } = singleAd
 
-    const { title, amount, image, description } = firebaseSingleAds //for firebaseData
-
+    let { title, amount, image, description } = firebaseSingleAds //for firebaseData
+    // console.log(firebaseSingleAds)
 
     function getRandomMonthInfo() {
         const months = ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'December'];
@@ -59,11 +60,11 @@ export default function Olxdetails() {
 
             <div class='details-body' >
                 <div class='details'>
-
-
                     <div class='imageGallery'>
-                        <img src={image} alt="" width={"100%"} height={"90%"} />
-                        {/* <MyCarousel images={images} /> */}
+                        {/* <img src={image} alt="" width={"100%"} height={"90%"} /> */}
+
+                        <Carousel images={typeof image === "string" ? image = [image] : image} />
+
                     </div>
                     <div class='contactInfo'>
                         <div class="contactInfo-details">
