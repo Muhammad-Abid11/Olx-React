@@ -1,28 +1,47 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { getUser, renderSingleAd } from '../../config/firebase/firebase'
 import Olxnav from '../../components/olxNav'
 import Olxnav3 from '../../components/OlxNav3'
 import Olxfooter from '../../components/Olxfooter'
 import locationIcon from '../../assests/location.png'
-import MyCarousel from '../../components/Carousel'
 import './style.css'
 
 export default function Olxdetails() {
     const { id } = useParams()
 
     const [singleAd, setSingleAd] = useState({})
+    const [firebaseSingleAds, setFirebaseSingleAds] = useState({})
+    const [userInfo, setUserInfo] = useState()
+
     useEffect(() => {
-        getAds()
+        // getAds()
+        firebaseSingleData()
     }, [])
 
     const getAds = () => {
-        fetch(`https://dummyjson.com/products/${id}`)
+        fetch(`https://dummyjson.com/products/14`)
             .then((response) => response.json())
             .then((data) => setSingleAd(data))
     }
 
+    // console.log("OLXDetail ad-id", id)
+    const firebaseSingleData = async () => {
+        const data = await renderSingleAd(id)
+        const userinfo = await getUser(data.uid)
+        setUserInfo(userinfo)
+        setFirebaseSingleAds(data)
+
+        // console.log("firebase sy daata aya", data)
+        // console.log("firebase sy daata aya", data.uid)
+    }
+    console.log("user's details", userInfo)
+
     // console.log("images-->", singleAd)
-    const { images, title, description, price, brand, thumbnail, category } = singleAd
+    // const { images, price, brand, thumbnail, category } = singleAd
+
+    const { title, amount, image, description } = firebaseSingleAds //for firebaseData
+
 
     function getRandomMonthInfo() {
         const months = ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'December'];
@@ -32,9 +51,6 @@ export default function Olxdetails() {
     }
 
 
-    if (!singleAd) {
-        return (<></>)
-    }
 
     return (
         <div>
@@ -46,7 +62,7 @@ export default function Olxdetails() {
 
 
                     <div class='imageGallery'>
-                        <img src={thumbnail} alt="" />
+                        <img src={image} alt="" width={"100%"} height={"90%"} />
                         {/* <MyCarousel images={images} /> */}
                     </div>
                     <div class='contactInfo'>
@@ -54,10 +70,10 @@ export default function Olxdetails() {
                             <div class='contant-Info'>
                                 <div className='contant-title'>
                                     <div class="profile-avatar">
-                                        <img src={thumbnail} alt="Profile Picture" />
+                                        <img src={image} alt="Profile Picture" />
                                     </div>
                                     <div className='contant-text'>
-                                        <h1>{title}</h1>
+                                        <h1>{userInfo?.name}</h1>
                                         <p>{getRandomMonthInfo()}</p>
                                         <h5>See profile</h5>
                                     </div>
@@ -79,8 +95,8 @@ export default function Olxdetails() {
                     </div>
                 </div>
                 <div class='details-2'>
-                    <h1>Rs {price}</h1>
-                    <h3>{`${title} ${brand} ${category}`}</h3>
+                    <h1>Rs {amount}</h1>
+                    <h3>{`${title} `}</h3>
                     <p> <img src={locationIcon} alt="locationIcon" />Allama Iqbal Town, Lahore</p>
                 </div>
                 <div class='details-3'>

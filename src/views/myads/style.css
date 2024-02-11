@@ -1,0 +1,48 @@
+.myads_body{
+    margin: 40px;
+}
+.myads-postBody{
+    /* background-color: yellow; */
+    max-width: 100%;
+    min-width: 700px;
+    height: 200px;
+    padding:20px ;
+}
+
+.myad-one{
+    border: 1px solid #D8DFE0;
+    border-radius: 20px;
+    margin: 20px 0px;
+    display: flex;
+    align-items: center;
+    /* background-color: green; */
+    height: 150px;
+}
+
+.ads-thumbnail{
+    max-width: 20%;
+    height: 130px;
+    /* background-color: red; */
+    margin: 0px 20px;
+
+}
+.ads-thumbnail img {
+  object-fit: contain;
+    border-radius: 10px;
+  max-width: 100%;
+  min-width: 100px;
+  height: 100%;
+}
+
+.myad-one-details{
+ width: 80%;   
+ /* background-color: yellow; */
+}
+.ads-details{
+    width: 100%;
+    /* background-color: blue; */
+}
+.ads-buttonIcon{
+    width: 100%;
+    /* background-color: orangered; */
+}

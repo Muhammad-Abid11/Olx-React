@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-
+import { renderAds } from '../../config/firebase/firebase'
 import iconAppStoreEN from "../../assests/iconAppStoreEN_footer.svg"
 import iconGooglePlayEN from "../../assests/iconGooglePlayEN_footer.svg"
 import iconAppGallery from "../../assests/iconAppGallery_footer.svg"
@@ -11,14 +11,24 @@ import './style.css'
 export default function OLXdashboard() {
 
     const [ads, setAds] = useState([])
+    const [firebaseAds, setFirebaseAds] = useState([])
+
     useEffect(() => {
-        getAds()
+        // getAds()
+        firebaseData()
     }, [])
 
     const getAds = () => {
         fetch("https://dummyjson.com/products")
             .then((response) => response.json())
             .then((data) => setAds(data.products))
+    }
+
+
+    const firebaseData = async () => {
+        const data = await renderAds()
+        setFirebaseAds(data)
+        // console.log("firebase sy daata aya", data)
     }
     // console.log("data", ads)
     return (
@@ -33,7 +43,14 @@ export default function OLXdashboard() {
                 <div class="Ads-Container">
                     {/* <Olxads /> */}
 
+                    {/* //for API
                     {ads.map((Posts, index) => {
+                        return (
+                            <Olxads ads={Posts} index={index} />
+                        )
+                    })} 
+                */}
+                    {firebaseAds.map((Posts, index) => {
                         return (
                             <Olxads ads={Posts} index={index} />
                         )

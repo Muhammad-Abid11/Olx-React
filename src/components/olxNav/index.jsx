@@ -7,6 +7,7 @@ import searchIcon from "../../assests/search.png"
 import findIcon from "../../assests/find.png"
 import iconPlus from "../../assests/iconPlusSell.svg"
 import iconSellBorder from "../../assests/iconSellBorder.svg"
+import Myads from '../../assests/myAds.png'
 import { Signout, auth, onAuthStateChanged } from '../../config/firebase/firebase'
 import MyModal from '../Modal'
 import './style.css'
@@ -23,15 +24,15 @@ export default function Olxnav() {
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUserLogged(user)
-                console.log("user agaya! ");
+                // console.log("user agaya! ");
             } else {
                 console.log("login kr pehly ");
             }
         });
     }, [])
-    console.log("OLxNAVuser--->", userLogged);
+    // console.log("OLxNAVuser--->", userLogged);
     const logout = async () => {
-        console.log("hi logou")
+        // console.log("hi logou")
         await Signout()
         setUserLogged("")
         navigate('/')
@@ -56,6 +57,12 @@ export default function Olxnav() {
                         </div>
                         <div><b>Property</b></div>
                     </div>
+                    {userLogged && <div className="nav-box-2 " onClick={() => navigate('/myads')}>
+                        <div className="nav-img-2">
+                            <img width={"100%"} src={Myads} alt="prop-icon" />
+                        </div>
+                        <div><b>Myads</b></div>
+                    </div>}
 
                 </div>
                 <div className="navbar2">

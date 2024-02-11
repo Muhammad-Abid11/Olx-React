@@ -4,9 +4,9 @@ import { useNavigate } from 'react-router-dom'
 import carIcon from '../../assests/header-car.png'
 import LogoBlack from "../../assests/olx-black.png"
 import property from "../../assests/header-property.png"
-import AdForm from '../../components/sellForm'
 import userAvatar from '../../assests/user-avatar.png'
 import BackArrow from '../../assests/arrow-back.svg'
+import Myads from '../../assests/myAds.png'
 import { postAdToDb, auth } from '../../config/firebase/firebase'
 import './style.css'
 export default function SellPage() {
@@ -14,9 +14,9 @@ export default function SellPage() {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [brand, setBrand] = useState('');
-    const [price, setPrice] = useState();
+    const [amount, setAmount] = useState();
     const [image, setImage] = useState(null);
-    // const uid = auth.currentUser.uid //Authentication
+    const uid = auth.currentUser.uid //Authentication
 
 
     const [selectedImage, setSelectedImage] = useState(userAvatar);
@@ -26,9 +26,9 @@ export default function SellPage() {
         const ad = {
             title,
             description,
-            price,
+            amount,
             image,
-            // uid
+            uid
         }
 
         // 
@@ -55,7 +55,7 @@ export default function SellPage() {
         if (res) {
             setTitle("")
             setBrand("")
-            setPrice("")
+            setAmount("")
             setImage("")
             setDescription("")
             setSelectedImage(userAvatar)
@@ -95,6 +95,12 @@ export default function SellPage() {
                     </div>
                     <div><b>Property</b></div>
                 </div>
+                <div className="nav-box-2 " onClick={() => navigate('/myads')}>
+                    <div className="nav-img-2">
+                        <img width={"100%"} src={Myads} alt="prop-icon" />
+                    </div>
+                    <div><b>Myads</b></div>
+                </div>
             </div>
 
             <div className='sellForm'>
@@ -111,7 +117,7 @@ export default function SellPage() {
                             <label htmlFor="Brand">Brand</label>
                             <input type="text" id="Brand" value={brand} onChange={(e) => setBrand(e.target.value)} placeholder="Enter Product brand" />
                             <label htmlFor="price">Price of Product</label>
-                            <input type="number" id="price" value={price} onChange={(e) => setPrice(e.target.value)} placeholder="Enter Product Price" />
+                            <input type="number" id="price" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter Product Price" />
                             <div className='btnSignDiv'>
                                 <button type="submit" className='btnSign' >Post Now</button>
                             </div>
