@@ -3,7 +3,7 @@ import './Carousel.css'
 export default function Carousel(props) {
     // console.log("props images for carusal", props.images)
     const [activeImage, setActiveImage] = useState(0)
-    console.log("lenght of images", props?.images?.length)
+    // console.log("lenght of images", props?.images?.length)
 
     const moveBack = () => {
         if (!activeImage) {//ye 0 ye pichy jaye too data ki length k final pe jao
@@ -14,7 +14,7 @@ export default function Carousel(props) {
         }
     }
     const moveNext = () => {
-        console.log("move next", activeImage)
+        // console.log("move next", activeImage)
         setActiveImage((activeImage >= props?.images?.length - 1 ? 0 : activeImage + 1))
     }
 

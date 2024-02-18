@@ -20,6 +20,7 @@ background-color: transparent;
 
 .caru{
     max-width: 80%;
+    min-width: 300px;
     margin: 10px;
     height: 500px;
     object-fit: contain;

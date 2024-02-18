@@ -3,26 +3,37 @@ import Map, { Marker } from 'react-map-gl';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 import './style.css'
-export default function Mymap() {
+export default function Mymap(props) {
+
+    /* for detail page usage down*/
+    const { latitude: p_latitude, longitude: p_longitude } = props.location //object destructure and re-named
+    console.log("props-->", props.location)
+    console.log("location props-->", p_latitude, p_longitude)
+
 
     const [loading, setLoading] = useState(false)
-
     const [viewState, setViewState] = useState({
-        longitude: 66.990501,
-        latitude: 24.860966,
+        // longitude: 66.990501, //karachi location as a initial state if not getting props value
+        // latitude: 24.860966,
+
+        /* for detail page usage down*/
+        longitude: p_longitude, //location from props
+        latitude: p_latitude,
         zoom: 16
     });
 
-    useEffect(() => {//location auto get krlyga
-        navigator.geolocation.getCurrentPosition((location) => {
-            const { latitude, longitude } = location.coords
-            setViewState({ ...viewState, latitude, longitude })
-            //new location ajaye too old me new location update krdo
-            //loading false krdo
-            setLoading(!loading)
-        })
-    }, [])
-
+    /* //off because initial comes their as a props by parent component where it is call(details page)
+        useEffect(() => {//location auto get krlyga
+            navigator.geolocation.getCurrentPosition((location) => {
+                const { latitude, longitude } = location.coords
+                setViewState({ ...viewState, latitude, longitude })
+                //new location ajaye too old me new location update krdo
+                //loading false krdo
+                setLoading(!loading)
+            })
+        }, [])
+    
+        */
     const locationFinder = () => {//onclick per location findOut krdyga
         navigator.geolocation.getCurrentPosition((location) => {
             const { latitude, longitude } = location?.coords
@@ -35,7 +46,7 @@ export default function Mymap() {
 
     return (
         <div>
-            <h1>Map</h1>
+            {/* <h1>Map</h1> */}
             <div className='mapBody'>
                 <Map
                     mapboxAccessToken="pk.eyJ1IjoibXVoYW1tYWQtYWJpZDExIiwiYSI6ImNsc2czeWlqdTBpNTMya21yZWkyaGRlZjYifQ.6IWi1gigMCpInoZj1sEf5g"
@@ -66,7 +77,7 @@ export default function Mymap() {
 
             </div>
 
-            <button onClick={locationFinder}>Find Current Location</button>
+            {/* <button onClick={locationFinder}>Find Current Location</button> */}
 
 
         </div>

@@ -116,22 +116,38 @@
 
 }
 
+/* for map */
+.contactInfo-location-map{
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border: #c0bebe 1px solid;
+    border-radius: 5px;
+    margin-top: 35px;
+}
+.mapDiv{
+    /* background-color: red; */
+    width: 50px;
+    height: 300px;
+}
+
 .details-2{
-    width: 65%;
+    max-width: 65%;
+    min-width: 400px;
     height: 150px;
     overflow: hidden;
     border: #c0bebe 1px solid;
     border-radius: 5px;
     padding: 15px;
     margin-bottom: 15px;
-}
-.details-2{
     color: #002F34;
+    
 }
 
 .details-3{
 
     width: 65%;
+    min-width: 400px;
     height: 100px;
     overflow: hidden;
     border: #c0bebe 1px solid;
@@ -140,3 +156,9 @@
     margin-bottom: 15px;
 }
 
+@media only screen and (max-width: 732px) {
+.details-2{
+    margin-top: 110px;
+    
+}
+}

@@ -7,7 +7,7 @@ import Olxfooter from '../../components/Olxfooter'
 import locationIcon from '../../assests/location.png'
 import './style.css'
 import Carousel from '../../components/Carousel'
-
+import Mymap from '../../components/mapBox'
 export default function Olxdetails() {
     const { id } = useParams()
 
@@ -91,8 +91,19 @@ export default function Olxdetails() {
                         </div>
                         <div class="contactInfo-location">
                             <h3>Location</h3>
-                            <p><img src={locationIcon} alt="locationIcon" />Allama Iqbal Town,Lahore</p>
+                            <p><img src={locationIcon} alt="locationIcon" />
+                                Allama Iqbal Town,Lahore
+                            </p>
                         </div>
+                        {firebaseSingleAds?.viewState &&
+                            <div class="contactInfo-location-map">
+                                <div className='mapDiv'>
+
+                                    <Mymap location={firebaseSingleAds?.viewState} />
+
+                                </div>
+                            </div>
+                        }
                     </div>
                 </div>
                 <div class='details-2'>
