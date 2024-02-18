@@ -7,6 +7,7 @@ import property from "../../assests/header-property.png"
 import userAvatar from '../../assests/user-avatar.png'
 import BackArrow from '../../assests/arrow-back.svg'
 import Myads from '../../assests/myAds.png'
+import loader from "../../assests/loading-gif.gif"
 import { postAdToDb, auth } from '../../config/firebase/firebase'
 import './style.css'
 export default function SellPage() {
@@ -17,6 +18,13 @@ export default function SellPage() {
     const [amount, setAmount] = useState();
     const [image, setImage] = useState([]);
     const uid = auth?.currentUser?.uid //Authentication
+    //for location of selling Product
+    const [viewState, setViewState] = useState({
+        longitude: "",
+        latitude: "",
+        zoom: 16
+    });
+    const [loading, setLoading] = useState(false)
 
 
     const [selectedImage, setSelectedImage] = useState(userAvatar);
@@ -28,14 +36,15 @@ export default function SellPage() {
             description,
             amount,
             image,
-            uid
+            uid,
+            viewState
         }
 
         // 
         const getEmptyFields = (obj) => {
             const emptyFields = [];
             for (const key in obj) {
-                if (obj.hasOwnProperty(key) && (obj[key] === '' || obj[key] === undefined)) {
+                if (obj.hasOwnProperty(key) && (obj[key] === '' || obj[key] === undefined || obj[key].length < 1)) {
                     emptyFields.push(key);
                 }
             }
@@ -49,7 +58,7 @@ export default function SellPage() {
         }
         // 
 
-
+        setLoading(true)
         let res
         emptyFields.length ? alert(`${emptyFields[0].toLocaleUpperCase()} missing`) : res = await postAdToDb(ad)
         if (res) {
@@ -59,6 +68,7 @@ export default function SellPage() {
             setImage("")
             setDescription("")
             setSelectedImage(userAvatar)
+            setLoading(false)
         }
 
     };
@@ -78,6 +88,15 @@ export default function SellPage() {
             reader.readAsDataURL(file);
         }
     };
+
+    const locationFinder = () => {//onclick per location findOut krdyga
+        navigator.geolocation.getCurrentPosition((location) => {
+            const { latitude, longitude } = location?.coords
+            console.log("find current-location", latitude, longitude)
+            setViewState({ ...viewState, latitude, longitude })
+        })
+    }
+    // console.log(viewState)
     return (
         <div>
 
@@ -121,9 +140,16 @@ export default function SellPage() {
                             <input type="text" id="Brand" value={brand} onChange={(e) => setBrand(e.target.value)} placeholder="Enter Product brand" />
                             <label htmlFor="price">Price of Product</label>
                             <input type="number" id="price" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter Product Price" />
+                            {/* for location */}
+                            <input type="button" className='findLocation' value="Find Current Location " onClick={locationFinder} />
+                            <p>{`${viewState?.latitude} ${viewState?.longitude}`}</p>
+
                             <div className='btnSignDiv'>
-                                <button type="submit" className='btnSign' >Post Now</button>
+                                <button type="submit" className='btnSign' disabled={loading} >Post Now</button>
                             </div>
+                            {loading &&
+                                <div><img src={loader} alt="loader" className='loader' /></div>
+                            }
                         </form>
                     </div>
                     <div className='adForm-Pictures'>
